@@ -1,1 +1,1 @@
-# programing-theorems-in-C-language
+# programing-theorems-in-C++-language
