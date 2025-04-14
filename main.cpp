@@ -224,9 +224,9 @@ void maxSelectSort(int array[], int size)
 void logarithmicSearch(int array[], int size)
 {
 	int numberToFind = 4;
-	int f = 0;//f
-	int l = size;//l
-	int m = (f + l) / 2;//m
+	int f = 0;
+	int l = size;
+	int m = (f + l) / 2;
 	do
 	{
 		m = (f + l) / 2;
@@ -241,7 +241,7 @@ void logarithmicSearch(int array[], int size)
 	} while (f <= l && array[m] != numberToFind);
 	if (f <= l)
 	{
-		cout << "index of element: " << m + 1 << endl;
+		cout << "Element found at index: " << m + 1 <<"." endl;
 	}
 	else
 	{
