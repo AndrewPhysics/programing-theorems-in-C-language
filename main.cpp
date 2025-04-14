@@ -22,13 +22,13 @@ void simpleSwapSort(int array[], int size);
 void bubbleSort(int array[], int size);
 //9. max select sorting in ascending order
 void maxSelectSort(int array[], int size);
-//10.logarithmic search
+//10. logarithmic search
 
-//11. Kiválagoatás tétele
+//11. assortment
 
-//12. metszet képzés
+//12. intersection of array elements
 
-//13. unió képzés
+//13. union of array elements
 
 
 
