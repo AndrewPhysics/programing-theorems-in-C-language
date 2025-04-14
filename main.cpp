@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 //0. Read array
 void readArray(int array[], int size);
 //1. decision maker
@@ -23,22 +22,14 @@ void bubbleSort(int array[], int size);
 //9. max select sorting in ascending order
 void maxSelectSort(int array[], int size);
 //10. logarithmic search
-
-//11. assortment
-
-//12. intersection of array elements
-
-//13. union of array elements
-
-
-
+void logarithmicSearch(int array[], int size);
 int main()
 {
 	const int size = 5;
 	int array[size] = { 1,-2,7,4,4 };
 	readArray(array, size);
 	cout << "--" << endl;
-	if (decisionMaker(array, size)) 
+	if (decisionMaker(array, size))
 	{
 		cout << "There is an element 5 in array!" << endl;
 	}
@@ -47,11 +38,11 @@ int main()
 		cout << "There is no element 5 in array!" << endl;
 	}
 	cout << "Sum of elements: " << sumOfElements(array, size) << endl;
-	cout << "Average of elements: " << (float)sumOfElements(array, size) / (float)size << endl; 
-	cout << "Number of "<< 4 <<" elements in array: " << countingElements(array, size, 4) << endl;
+	cout << "Average of elements: " << (float)sumOfElements(array, size) / (float)size << endl;
+	cout << "Number of " << 4 << " elements in array: " << countingElements(array, size, 4) << endl;
 	linearSearch(array, size);
-	cout << "Max element: " <<selectMax(array, size)<< endl;
-	cout << "Index of max element: " << selectMaxIndex(array, size)+1<<". " << endl;
+	cout << "Max element: " << selectMax(array, size) << endl;
+	cout << "Index of max element: " << selectMaxIndex(array, size) + 1 << ". " << endl;
 	cout << "--" << endl;
 	readArray(array, size);
 	//simpleSwapSort(array, size);
@@ -63,6 +54,9 @@ int main()
 	cout << "--" << endl;
 	maxSelectSort(array, size);
 	readArray(array, size);
+	cout << "--" << endl;
+	logarithmicSearch(array, size);
+	cout << "--" << endl;
 }
 void readArray(int array[], int size)
 {
@@ -76,30 +70,30 @@ void readArray(int array[], int size)
 bool decisionMaker(int array[], int size)
 {
 	int i = 0;
-	while (i<size && array[i]!=5)
+	while (i < size && array[i] != 5)
 	{
 		i++;
 	}
 	return i < size;
 }
-int sumOfElements(int array[], int size) 
+int sumOfElements(int array[], int size)
 {
 	int sum = 0;
 	int i = 0;
-	while (i<size)
+	while (i < size)
 	{
 		sum = sum + array[i];
 		i++;
 	}
 	return sum;
 }
-int countingElements(int array[], int size, int numberToCount) 
+int countingElements(int array[], int size, int numberToCount)
 {
 	int i = 0;
 	int count = 0;
-	while (i<size)
+	while (i < size)
 	{
-		if (array[i]==numberToCount)
+		if (array[i] == numberToCount)
 		{
 			count++;
 		}
@@ -115,13 +109,13 @@ void linearSearch(int array[], int size)
 {
 	//Find index of first negativ value.
 	int i = 0;
-	while (i<size && P(array[i]))
+	while (i < size && P(array[i]))
 	{
 		i++;
 	}
-	if (i < size) 
+	if (i < size)
 	{
-		cout << "Negativ value found at index: " << i + 1 <<"." << endl;
+		cout << "Negativ value found at index: " << i + 1 << "." << endl;
 	}
 	else
 	{
@@ -135,7 +129,7 @@ int selectMax(int array[], int size)
 	//if not then rewrite max variable
 	int max = array[0];
 	int i = 0;
-	while (i<size)
+	while (i < size)
 	{
 		if (array[i] > max)
 		{
@@ -162,7 +156,7 @@ int selectMaxIndex(int array[], int size)
 	}
 	return maxIndex;
 }
-void simpleSwapSort(int array[], int size) 
+void simpleSwapSort(int array[], int size)
 {
 	int i = 0;
 	int j = 0;
@@ -227,4 +221,30 @@ void maxSelectSort(int array[], int size)
 		j = 0;
 	}
 }
-
+void logarithmicSearch(int array[], int size)
+{
+	int numberToFind = 4;
+	int f = 0;//f
+	int l = size;//l
+	int m = (f + l) / 2;//m
+	do
+	{
+		m = (f + l) / 2;
+		if (array[m] < numberToFind)
+		{
+			f = m + 1;
+		}
+		else if (array[m] > numberToFind)
+		{
+			l = m - 1;
+		}
+	} while (f <= l && array[m] != numberToFind);
+	if (f <= l)
+	{
+		cout << "index of element: " << m + 1 << endl;
+	}
+	else
+	{
+		cout << "The element was not in the array! " << endl;
+	}
+}
